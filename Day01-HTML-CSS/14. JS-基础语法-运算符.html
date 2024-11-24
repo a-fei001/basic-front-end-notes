@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-运算符</title>
+</head>
+<body>
+<!-- 
+| 算术运算符 | + , - , * , / , % , ++ , --                                  |
+| 赋值运算符 | = , += , -= , *= , /= , %=                                   |
+| 比较运算符 | &gt; , < , >= , <= , != , == , ===                           |
+| 逻辑运算符 | && , || , !                                                |
+| 三元运算符 | 条件表达式 ? true_value: false_value                          | 
+     注：== 会进行类型转换，=== 不会进行类型转换）
+
+流程控制语句 如：
+     if..else if...else...
+     switch
+     for
+     while
+     do while
+都和java语法基本一致
+-->
+</body>
+<script>
+    // var age = 20;
+    // var _age = "20";
+    // var $age = 20;
+    
+    // alert(age == _age); //true
+    // alert(age === _age); //false
+    // alert(age === $age); //true
+
+
+
+    // 类型转换 - 其他类型转为数字 
+    /* 字符串类型转化为数字，如果字面值不是数字，转为NaN */
+    //alert(parseInt("12")); //12
+    //alert(parseInt("1222A45")); //1222
+    //alert(parseInt("A45")); //NaN
+
+    // 类型转换 - 其他类型转为boolean
+    /* number */
+    // if(0){ //false
+    //     alert("0 转换为false");
+    // }
+
+    // if(NaN){ //false
+    //     alert("NaN 转换为false");
+    // }
+
+    // if(-1){ //true
+    //     alert("除0和NaN其他数字都转为 true");
+    // }
+
+    /* string */
+    // if(""){ //false
+    //     alert("空字符串为 false, 其他都是true");
+    // }
+        
+    /* null */
+    // if(null){ //false
+    //     alert("null 转化为false");
+    // }
+
+    /* undefined */
+    //if(undefined){ //false
+    //    alert("undefined 转化为false");
+    //}
+
+    /*
+        false：
+            0    NaN
+            ""
+            null
+            undefined
+    */
+
+</script>
+</html>

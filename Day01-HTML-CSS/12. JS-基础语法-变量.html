@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-基础语法</title>
+</head>
+<body>
+  
+
+
+<script>
+
+/* - JavaScript 是一门弱类型语言，变量可以存放不同类型的值 。
+- 变量名需要遵循如下规则：
+  - 组成字符可以是任何字母、数字、下划线（_）或美元符号（$）
+  - 数字不能开头
+  - 建议使用驼峰命名 */
+
+/* 下方是3种声明变量的方式 主要关注以下几个性质：
+1.全局 or 局部？
+//注意：这里全局指的是在全局代码块中可以声明整个程序的全局变量
+2.可否重复声明？
+3.值是否可以更改？ */
+
+//全局 可重复声明 值可以更改
+//var在一个*非主函数*中的声明的变量并不能作为全局变量
+{
+    var x = 1;
+    alert(x);
+    /* JS是一门弱类型语言，变量可以存放不同类型的值 */
+    x = "xxx";
+    alert(x);
+    /* var修饰的变量 同一个变量重复定义时，后者覆盖前者 */
+    var x = 1.22;
+    alert(x);
+}
+/* var定义的变量是全局的 */
+alert(x);
+//结果：1 xxx 1.22 1.22
+
+//局部 不可重复声明 值可以更改
+/* 在ECMAScript 6 新增了let关键字来定义变量，用法类似于var
+声明的变量是局部的，不能重复声明 */
+let a = "let01";
+a = 11;//和java中正常变量不同的地方只有‘弱类型的性质’
+document.write(a);
+
+//局部 不可重复声明 值不可更改
+/* 在ECMAScript6中，还新增了const关键字用来声明常量
+一旦声明，常量的值是无法更改的。 
+这玩意是局部的常量 不能重复声明*/
+{
+    const b = 10;
+    document.write(b);
+}
+//document.write(b);//出错误
+
+</script>
+</body>
+</html>

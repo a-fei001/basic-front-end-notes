@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-对象-DOM</title>
+</head>
+
+<body>
+    <img id="myId" src="img/off.gif">  <br><br>
+
+    <div class="cls">传智教育</div>   <br>
+    <div class="cls">黑马程序员</div>  <br>
+
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 旅游
+    <input type="checkbox" name="hobby"> 游戏
+
+    <hr>
+    <img src="./img/BOM_Tree.jpg" width="70%">
+</body>
+
+<script>
+    /* 
+    DOM：Document Object Model 文档对象模型。
+        也就是 JavaScript 将 HTML 文档的各个组成部分封装为对象.
+        通过获取html中的DOM对象，对其的属性，文本等进行改变，就可以实现很多页面交互的操作
+    
+    封装的对象有(详情请看网页中的图片笔记)：
+        - Document：整个文档对象
+        - Element：元素对象
+        - Attribute：属性对象
+        - Text：文本对象
+        - Comment：注释对象
+    
+    获取DOM中的元素对象：
+    HTML中的Element对象可以通过Document对象获取，而Document对象是通过window对象获取的。
+    document对象提供的用于获取Element元素对象的api如下表所示：
+    | document.getElementById()         | 根据id属性值获取，返回单个Element对象    |
+    | document.getElementsByTagName()   | 根据标签名称获取，返回Element对象数组    |
+    | document.getElementsByName()      | 根据name属性值获取，返回Element对象数组  |
+    | document.getElementsByClassName() | 根据class属性值获取，返回Element对象数组 |
+    */
+
+      /* 1.获取元素对象的代码展示： */
+//    var idObject = document.getElementById('myId');
+//    /* 返回类型是Object 说明返回的对象(不是原始类型 是引用类型) */
+//    /* 直接打印idObject 内部将其转化为字符串输出 字符串含义是说明dObjext的对象名 */
+//    console.log('Element对象为' + idObject+ '  ' + '类型为' + typeof idObject);
+
+//    console.log('----------------------');
+//    var divs = document.getElementsByTagName('div');
+//    for (let i = 0; i < divs.length; i++) {
+//     console.log('Element对象为' + divs[i] + '  ' + '类型为' + typeof divs[i]);
+//    }
+
+//    console.log('----------------------');
+//    var nameObject = document.getElementsByName('hobby');
+//    for (let i = 0; i < nameObject.length; i++) {
+//     console.log('Element对象为' + nameObject[i] + '  ' + '类型为' + typeof nameObject[i]);
+//    }
+
+//    console.log('----------------------');
+//    var classObject = document.getElementsByClassName('cls');
+//    /*
+//     采用forEach的方法并不能正常运行，原因如下：
+//     getElementsByClassName返回的是一个HTMLCollection对象，
+//     而不是数组。虽然这个对象可以像数组一样通过索引访问元素，但它并不具有数组的所有方法，比如forEach。
+//     */
+// //    classObject.array.forEach(e => {
+// //     console.log('Element对象为' + e + '  ' + '类型为' + typeof e);
+// //    });
+//    for (let i = 0; i < classObject.length; i++) {
+//     console.log('Element对象为' + classObject+ '  ' + '类型为' + typeof classObject)
+//    }
+
+      /* 2.通过元素对象修改文本的代码展示 */
+      var divs = document.getElementsByTagName('div');
+      /* innerText方法可以显示或改变元素文本内容 */
+      console.log(divs[0].innerText);
+      divs[0].innerText = '舒源好帅 我好爱~';
+
+   
+</script>
+</html>

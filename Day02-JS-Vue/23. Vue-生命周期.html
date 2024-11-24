@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-指令-v-for</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <!--
+    vue的生命周期：指的是vue对象从创建到销毁的过程。
+    vue的生命周期包含8个阶段：
+    其完整的生命周期如下图所示：
+    | 状态          | 阶段周期  |
+    | ------------- | -------- |
+    | beforeCreate  | 创建前   |
+    | created       | 创建后   |
+    | beforeMount   | 挂载前   |
+    | mounted       | 挂载完成 |
+    | beforeUpdate  | 更新前   |
+    | updated       | 更新后   |
+    | beforeDestroy | 销毁前   |
+    | destroyed     | 销毁后   |
+
+    **每触发一个生命周期事件，会自动执行一个生命周期方法**
+    这些生命周期方法也被称为钩子方法。
+    注意这里的自动触发这个生命周期的方法这句话，，
+    这也是了解生命周期的意义，下面演示如何自动触发mouted()方法
+    -->
+    <div id="app">
+        <div><strong>图片笔记</strong> 生命周期展示图</div>
+        <img src="img/VueLife.jpg" width="800px">
+    </div>
+</body>
+<script>
+    //定义Vue对象
+    new Vue({
+        el: "#app", //vue接管区域
+        data:{
+           
+        },
+        methods: {
+            
+        },
+        mounted() {
+            alert('vue挂载完成,发送请求到服务端');
+        },
+    })
+</script>
+</html>

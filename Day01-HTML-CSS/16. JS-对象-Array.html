@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-对象-Array</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // //01定义数组
+    // //1.写法（可以包含不同的类型）
+    // var arr = new Array(1,'a',true,undefined,null,10);//6个元素
+    // //2.简化格式
+    // var a = [1,2,3,4,5];
+    // console.log(arr[1]);//访问
+    // arr[1] = 'b';//赋值
+    // console.log(arr[1]);
+    // console.log(arr);
+    // //长度可变·类型可变
+    // var a1 = [1,2,3];
+    // a1[9] = 10;
+    // console.log(a1[9]);
+    // console.log(a1[8]);//undefined
+    // console.log(a1);
+ 
+ /* 
+ 02
+ Array常用属性
+ length  设置或返回数组中元素的数量。                                           
+
+ Array常用方法
+ forEach() 遍历数组中的每个有值得元素，并调用一次传入的函数 
+ push()    将新元素添加到数组的末尾，并返回新的长度         
+ splice()  从数组中删除元素 
+ */    
+
+//  //遍历数组01
+//  var arr = new Array(1,'a',true,undefined,null,10)
+//  arr[10] = 11;//加长数组 出现了未被赋值undefinded的数组元素
+//  arr[9] = undefined;//主动赋值为undefined 二者都会将其遍历
+//  for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+//  }
+//  console.log("----------------------------");
+//  //遍历数组02
+//  arr.forEach(function(e){//这个语法注意一下
+//     console.log(e);
+//  })
+//  /* 01和02的区别：当增加数组长度 出现了undefined的元素时 
+//               01正常将其遍历 02不会将其遍历
+//               如果主动赋值为undefined 二者都会将其遍历 */
+//  console.log("----------------------------");
+//  //遍历数组02--箭头函数简写
+//  arr.forEach(e=>{console.log(e)});
+
+/*
+这段代码三次console输出结果一样 与预期不符 不知道为什么
+console.log()输出的结果是实时的 正确使用方法应该是：
+先打开浏览中的Console页面 每修改一次代码 刷新一次也页面查看console中的结果
+*/
+//push: 添加元素到数组末尾
+// var a = [1,2,3,4,5];
+// console.log(a);
+// document.write(a)
+// a.push(6,7);
+// console.log(a);
+// document.write(a)
+// //splice: 删除元素
+// a.splice(1,3);//删去2-4（从下标1开始删3个）
+// console.log(a);
+// document.write(a)
+
+</script>
+</html>

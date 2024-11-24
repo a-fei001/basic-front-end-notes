@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-对象-DOM-案例</title>
+</head>
+
+<body>
+    <img id="myId" src="img/off.gif">  <br><br>
+
+    <div class="cls">舒源</div>   <br>
+    <div class="cls">生活</div>  <br>
+
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 旅游
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+    <br>
+
+    <button onclick="myFunction()">选择我吧！</button>
+    
+</body>
+
+<script>
+    function myFunction(){
+        /* 正确利用ai和官方文档(w3网站)来完成项目需求 */
+
+        //1. 点亮灯泡 
+        document.getElementById('myId').src = './img/on.gif';
+
+        //2. 将所有div标签的内容后面加上
+        var divs = document.getElementsByClassName('cls');
+        divs[0].innerHTML = '舒源  <span style="color:red;">帅！！！</span>';
+        divs[1].innerHTML = '生活  <span style="color:red;">爱！！！</span>';
+
+        //3. 使所有的复选框呈现选中状态
+        var cs = document.getElementsByName('hobby');
+        cs[0].checked = true;
+        cs[1].checked = true;
+        cs[2].checked = true;
+
+    
+    }
+    
+
+</script>
+</html>

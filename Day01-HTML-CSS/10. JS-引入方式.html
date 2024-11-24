@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-引入方式</title>
+</head>
+<body>
+    <div>弹出警告框</div>
+
+    <div style="color: red;">
+        在html文档中，可以在任意地方，放置任意数量的script标签
+        <br>
+        一般把脚本置于body元素的底部，可以改善显示速度
+    </div>
+
+</body>
+
+<!-- 01内部脚本 -->
+<script>
+    alert('Hello JS');
+</script>
+
+<!-- 02外部脚本 -->
+<!-- 注意外部脚本不能是自闭和的 -->
+<script src="./JS/hello.js"></script>
+
+</html>

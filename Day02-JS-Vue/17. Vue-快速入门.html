@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-快速入门</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <!-- 说明了Vue作为桥梁 联系了*页面展示*和*数据*两个方面 -->
+    <!--
+     {{表达式}} 插值表达式
+     内容可以是·变量
+              ·三元运算符
+              ·函数调用
+              ·算术运算符
+    -->
+    <div id="app">
+        <input type="text" v-model="message">
+        {{message}}
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            message:"Hello Vue~"
+        }
+    })
+</script>
+</html>

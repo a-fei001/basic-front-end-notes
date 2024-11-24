@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax-Axios-案例</title>
+    <!-- 引入外部框架 -->
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios-0.18.0.js"></script>
+    <style>
+        th{
+            color: red;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <table border="1px" cellspacing="0"  width="800px">
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Avatar</th>
+        </tr>
+        <tr v-for="(e,index) in arrs">
+            <td>{{e.id}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.first_name}} {{e.last_name}}</td>
+            <td><img v-bind:src="e.avatar" width="200px"></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            arrs:[]
+        },
+        methods:{
+
+        },
+        mounted() {
+            /* 这个地址是我用apifox软件自己配的本地api地址 使用前先打开这个软件 */
+            axios.get("http://127.0.0.1:4523/m1/5124779-4788200-default/api/users/1").then(result=>{
+                /* 
+                result.data是全部返回的内容信息 声明为x
+                根据下面端点返回信息可知，我们只需要其中的data数组的内容
+                所以再加一个.data,表示返回信息中的data数组
+                用Vue中data中声明的arrs数组接收
+                */
+                this.arrs = result.data.data;
+                console.log(this.arrs);
+            }).catch(error =>{
+            console.log("出现错误喵！！！ ---> " + error);//实测有效
+         })
+        },
+    })
+
+</script>
+</html>
+
+<!-- 
+使用的端点信息 ：
+Request
+/api/users?page=2
+
+Response
+200
+{
+    "page": 2,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [
+        {
+            "id": 7,
+            "email": "michael.lawson@reqres.in",
+            "first_name": "Michael",
+            "last_name": "Lawson",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+        {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        },
+        {
+            "id": 9,
+            "email": "tobias.funke@reqres.in",
+            "first_name": "Tobias",
+            "last_name": "Funke",
+            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+        },
+        {
+            "id": 10,
+            "email": "byron.fields@reqres.in",
+            "first_name": "Byron",
+            "last_name": "Fields",
+            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+        },
+        {
+            "id": 11,
+            "email": "george.edwards@reqres.in",
+            "first_name": "George",
+            "last_name": "Edwards",
+            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+        },
+        {
+            "id": 12,
+            "email": "rachel.howell@reqres.in",
+            "first_name": "Rachel",
+            "last_name": "Howell",
+            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+        }
+    ],
+    "support": {
+        "url": "https://reqres.in/#support-heading",
+        "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+    }
+}
+-->

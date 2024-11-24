@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        {{message}}
+        <hr>
+        <a v-bind:href="message" >点点你的</a>
+        <hr>
+        <a :href="message">点点</a>
+        <hr>
+        <button v-on:click="handle">ann</button>
+        <button @click="handle0">soyo</button>
+    </div>
+
+</body>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            message:"https://www.baidu.com/"
+        },
+        methods: {
+            handle:function(){
+                alert('哈？');
+            },
+            handle0(){
+                alert('瓦塔西！');
+            }
+        },
+    })
+
+    
+    //  function func1(a,b){
+    //     return a+b;
+    // }
+
+    // var func2 = function(a,b){
+    //     return a+b;
+    // }
+
+    // var Stu = {
+    //     name:'Tom',
+    //     age:18,
+    //     eat:function(){
+    //         console.log("吃饭饭");
+    //     },
+    //     sleep(){
+    //         console.log('睡觉觉');
+    //     }
+    // }
+
+    // var s1 = Object.create(Stu);
+    // var s2 = Object.create(Stu);
+    // s1.age = 10;
+    // s2.age = 18;
+    // console.log("func1:"+func1(s1.age,s2.age));
+    // console.log("func2:"+func2(s1.age,s2.age));
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-对象-JSON</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+// //自定义对象
+// var user = {
+//     name: "Tom",
+//     age: "18",
+//     gender: "male",
+//     //函数写法
+//     eat: function(){
+//         console.log('我吃~');
+//     },
+//     //函数简化写法
+//     sleep(){
+//         console.log('睡觉觉~');
+//     }
+// }
+// console.log(user.name);
+// user.eat();
+// user.sleep();
+
+/* 
+JSON：JavaScript Object Notation,是通过JavaScript标记法书写的文本
+         经常用来作为前后台交互的数据载体(就是一个特殊格式的字符串)
+1.格式：
+{
+    "key":value,
+    "key":value,
+    "key":value
+}
+其中 value部分处理(按数据类型分类)如下：
+- number
+- string（加双引号）
+- boolean
+- null
+- 数组（加方括号）
+- 对象（加花括号）*/
+//这个大括号里面的内容要写在一行中 否则报错
+var jsonUser = '{"name":"Tom","age":18,"address":[2,"北京","上海"]}';
+console.log(typeof jsonUser)
+console.log(jsonUser);
+
+
+/* 2.JSON字符串转为JS对象 */
+var jsonObject = JSON.parse(jsonUser);
+console.log(jsonObject.address);
+
+/* 3.JS对象转为JSON字符串 */
+var jsonString = JSON.stringify(jsonObject);
+console.log(jsonString);
+</script>
+</html>

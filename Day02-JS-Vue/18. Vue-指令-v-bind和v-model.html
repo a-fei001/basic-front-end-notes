@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-指令-v-bind</title>
+    <script src="js/vue.js"></script>
+</head>
+<!-- 
+| v-bind    | 为HTML标签绑定属性值，如设置  href , css样式等      |
+| v-model   | 在表单元素上创建双向数据绑定                        | 
+-->
+<body>
+    <div id="app">
+        <!-- v-bind两种写法 -->
+        <a v-bind:href="url">链接1</a>
+        <a :href="url">链接2</a>
+
+        <!-- v-model用法 -->
+        <input type="text" v-model="url">
+    </div>
+</body>
+<script>
+    //定义Vue对象
+    new Vue({
+        el:"#app",
+        data:{
+            //注意：url必须在数据模型中定义
+            url:"https://www.baidu.com/"
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-对象-String</title>
+</head>
+<body>
+<!-- 
+| length | 字符串的长度。 |
+
+| charAt()    | 返回在指定位置的字符。                (访问)   
+| indexOf()   | 检索字符串。                          (寻找位置)   
+| trim()      | 去除字符串两边的空格                     
+| substring() | 提取字符串中两个指定的索引号之间的字符。(截取) 
+-->
+</body>
+<script>
+    //创建字符串对象
+    //var str = new String("Hello String");
+    var str = "  Hello String    ";
+
+    console.log(str);
+
+    //length
+    console.log(str.length);
+
+    //charAt
+    console.log(str.charAt(4));
+
+    //indexOf
+    console.log(str.indexOf("lo "));
+
+    //trim
+    var s = str.trim();
+    console.log(s);
+
+    //substring(start,end) --- 开始索引, 结束索引 (含头不含尾)
+    console.log(s.substring(0,5));
+
+</script>
+</html>

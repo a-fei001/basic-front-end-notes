@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-事件-案例</title>
+</head>
+<body>
+
+    <img id="light" src="img/off.gif"> <br>
+
+    <input type="button" value="点亮" > 
+    <input type="button"  value="熄灭" >
+    <input type="button" value="一闪一闪亮晶晶~">
+    <input type="button" value="闪你妈呢闪！">
+
+    <br> <br>
+
+    <input type="text" id="name" value="ITCAST" >
+    <br> <br>
+
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 旅游
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+
+    <input type="button" value="全选" > 
+    <input type="button" value="反选" >
+
+</body>
+
+<script>
+    //获取所有<input>标签对象的集合
+    var is = document.getElementsByTagName('input');
+
+    //1. 点击 "点亮" 按钮, 点亮灯泡; 点击 "熄灭" 按钮, 熄灭灯泡; 
+    var myImg = document.getElementById('light');
+
+    is[0].onclick = function(){
+        myImg.src = './img/on.gif';
+    }
+
+    is[1].onclick = function(){
+        myImg.src = './img/off.gif';
+    }
+
+    /*
+     这一步很关键 因为函数中的var声明的变量
+    相对于整个程序来说不是全局的 下面使用clearInterval()
+    无法取消timeId 也就无法停止闪烁
+    */
+    var timeId;
+
+    is[2].onclick = function(){
+        myImg.src = './img/on.gif';
+        let i = 0;
+        timeId = window.setInterval(function(){
+            i++;
+            if(i%2 === 1){
+                myImg.src = './img/off.gif';
+            } else{
+                myImg.src = './img/on.gif';
+            }
+        },500);
+    }
+
+    is[3].onclick = function(){
+        clearInterval(timeId);
+        myImg.src = './img/off.gif';
+    }
+
+    //2. 输入框聚焦后, 展示小写; 输入框离焦后, 展示大写; 
+    is[4].onfocus = function(){
+        is[4].value.toUpperCase();
+    }
+    is[4].onblur = function(){
+        is[4].value.toLowerCase();
+    }
+
+    //3. 点击 "全选" 按钮使所有的复选框呈现选中状态 ; 点击 "反选" 按钮使所有的复选框呈现取消勾选的状态 ; -- onclick
+    is[8].onclick = function(){
+        is[5].checked = true;
+        is[6].checked = true;
+        is[7].checked = true;
+    }
+    is[9].onclick = function(){
+        for (let i = 5; i < 8; i++) {
+            is[i].checked = false;
+        }
+    }
+
+
+
+</script>
+</html>

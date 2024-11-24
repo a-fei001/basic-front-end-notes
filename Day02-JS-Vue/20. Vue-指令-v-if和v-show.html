@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-指令-v-if与v-show</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--
+        | 指令      | 描述                                                 |
+        | --------- | --------------------------------------------------- |
+        | v-if      | 条件性的渲染某元素，判定为true时渲染,否则不渲染         |
+        | v-if-else |                                                     |
+        | v-else    |                                                     |
+        | v-show    | 根据条件展示某元素，区别在于切换的是display属性的值     |
+        -->
+
+        <!--
+        浏览器按f12 查看Elements中的代码
+        可以发现(v-if...)和(v-show)虽然页面效果相同
+        但是前者是控制浏览器只渲染符合条件的代码
+        后者是所有代码都会渲染,通过控制css中的display属性,来控制代码是否在页面中展示
+        -->
+        年龄<input type="text" v-model="age">经判定,为:
+        <span v-if="age <= 35">年轻人(35及以下)</span>
+        <span v-else-if="age>35 && age<60">中年人(35-60)</span>
+        <span v-else>老年人(60及以上)</span>
+
+        <br><br>
+
+        年龄<input type="text" v-model="age">经判定,为:
+        <span v-show="age<=35">年轻人(35及以下)</span>
+        <span v-show="age>35 && age<60">中年人(35-60)</span>
+        <span v-show="age>=60">老年人(60及以上)</span>
+
+    </div>
+</body>
+<script>
+    //定义Vue对象
+    new Vue({
+        el: "#app", //vue接管区域
+        data:{
+           age: 20
+        },
+        methods: {
+            
+        }
+    })
+</script>
+</html>

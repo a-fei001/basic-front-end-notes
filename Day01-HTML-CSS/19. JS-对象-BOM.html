@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-对象-BOM</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+ BOM的全称是Browser Object Model,翻译过来是浏览器对象模型。也就是JavaScript将浏览器的各个组成部分封装成了对象。 
+
+ 几种常见的BOM对象：
+| 对象名称  | 描述           
+| :-------- | :------------- 
+| Window    | 浏览器窗口对象 
+| Navigator | 浏览器对象     
+| Screen    | 屏幕对象       
+| History   | 历史记录对象   
+| Location  | 地址栏对象    
+
+window对象：浏览器窗口对象
+- 常用属性：
+| 属性      | 描述                  |
+| --------- | --------------------- |
+| history   | 用于获取history对象   |
+| location  | 用于获取location对象  |
+| Navigator | 用于获取Navigator对象 |
+| Screen    | 用于获取Screen对象    |
+- 常用方法：
+| 函数          | 描述                                               |
+| ------------- | -------------------------------------------------- |
+| alert()       | 显示带有一段消息和一个确认按钮的警告框。           |
+| comfirm()     | 显示带有一段消息以及确认按钮和取消按钮的对话框。   |
+| setInterval() | 按照指定的周期（以毫秒计）来调用函数或计算表达式。 |
+| setTimeout()  | 在指定的毫秒数后调用函数或计算表达式。             |
+
+location对象：地址栏对象
+获取：windows.location(其中windows.可以省略)
+属性：href:设置或返回完整的url
+*/
+
+// window.alert('alert的使用');
+/* 点击确定或取消的结果有返回值 是boolean类型 */
+// var confirmResult = window.confirm('confirm的使用--是否删除这个框框？')
+// window.alert('记录confirm框框的选择结果：' + confirmResult);
+
+/* 每隔三秒执行一次 */
+// let i = 0;
+// window.setInterval(function(){
+//     i++;
+//     console.log('该程序执行了' + i + '次');
+// },1000);
+
+/* 延迟三秒执行一次该行代码 但是总共只执行一次 */
+// setTimeout(function(){
+//     alert('延迟3秒执行~');
+// },3000);
+
+/*警告框弹出当前网页的url*/
+ alert(window.location.href);
+ /* 修改网页的url 达到的效果是:点击上一个警告框的确定后执行该行代码 网页直接跳转到百度界面 */
+ window.location.href = 'https://www.baidu.com/'; 
+</script>
+</html>

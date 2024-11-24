@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-表单项标签</title>
+</head>
+<body>
+
+<!-- value: 表单项提交的值 -->
+<form action="" method="post">
+     姓名: <input type="text" name="name"> <br><br>
+     密码: <input type="password" name="password"> <br><br> 
+     <!-- radio属性想要实现两个只能选择一个的效果 name的值必须保持一致 value表示后台记录的结果 选男结果是1 选女是2 -->
+     <!-- label标签这里的作用：没加label标签的男 点击男这个文字 不会选中结果；加了这个标签的女 点击女这个文字或是点击圆圈 都会选中
+                          这个标签表面没有效果 实际上是作用于鼠标点击 -->
+     性别: <input type="radio" name="gender" value="1"> 男
+          <label><input type="radio" name="gender" value="2"> 女 </label> <br><br>
+     <!-- value表示后台记录的结果 选中java 后台提交java -->
+     爱好: <label><input type="checkbox" name="hobby" value="java"> java </label>
+          <label><input type="checkbox" name="hobby" value="game"> game </label>
+          <label><input type="checkbox" name="hobby" value="sing"> sing </label> <br><br>
+     图像: <input type="file" name="image">  <br><br>
+     生日: <input type="date" name="birthday"> <br><br>
+     时间: <input type="time" name="time"> <br><br>
+     日期时间: <input type="datetime-local" name="datetime"> <br><br>
+     <!-- 必须要有'@' -->
+     邮箱: <input type="email" name="email"> <br><br>
+     <!-- 只能输入数字 -->
+     年龄: <input type="number" name="age"> <br><br>
+     学历: <select name="degree">
+               <option value="">----------- 请选择 -----------</option>
+               <option value="1">大专</option>
+               <option value="2">本科</option>
+               <option value="3">硕士</option>
+               <option value="4">博士</option>
+          </select>  <br><br>
+     <!-- 规定每行最多输入30个字符 最多输入10行 实际上可以鼠标拖动改变框框大小 改变输入的量 --> 
+     描述: <textarea name="description" cols="30" rows="10"></textarea>  <br><br>
+     <!-- 这个是隐藏域 最终提交时会提交1到服务端 结果id=1 -->
+     <input type="hidden" name="id" value="1">
+
+     <!-- 表单常见按钮 -->
+     <input type="button" value="按钮">
+     <input type="reset" value="重置"> 
+     <input type="submit" value="提交">   
+     <br>
+     <br>
+     <br>
+     <div>图片笔记</div>
+     <img src="./img/InForm.jpg">
+</form>
+
+</body>
+</html>

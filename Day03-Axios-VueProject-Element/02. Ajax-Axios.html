@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax-Axios</title>
+    <script src="./js/axios-0.18.0.js"></script>
+</head>
+<body>
+    
+    <!-- 
+    1.Axios介绍：
+    由于Ajax的用法相对繁琐 所以使用第三方的Axios来辅助开发
+    (Axios对原生Ajax进行了封装 来简化书写)
+    2.几种常用的请求方式
+    在HTTP/1.1协议中定义了几种请求方法（也称为“谓词”），以指示对资源的操作。
+    以下是一些常见的HTTP请求类型及其简要说明：
+    GET：
+    用于请求指定的资源。GET请求应该只用于获取数据，而不应该改变资源的状态。
+    数据通过URL传递，URL的长度有限制。
+    安全性相对较高，因为数据在URL中可见。
+    可被缓存。
+    应该避免在GET请求中发送敏感信息。
+    POST：
+    用于向服务器提交数据，通常用于创建或更新资源。
+    数据在请求体（HTTP消息主体）中发送，理论上没有大小限制。
+    数据不会显示在URL中，相对更安全。
+    不被缓存。
+    常用于表单提交。
+    PUT：
+    用于更新资源，或者如果资源不存在，则创建新资源。
+    数据在请求体中发送。
+    与POST不同，PUT请求通常具有幂等性，即多次执行相同的请求会得到相同的结果。
+    DELETE：
+    用于删除指定的资源。
+    不需要在请求体中发送数据，通常在URL中指定要删除的资源
+    3.以下是用法展示（完整写法和简化写法两种）（记得引用Axios相关js文件）
+      (可在网页 Network 查看访问信息)
+    -->
+
+    <input type="button" value="获取数据GET" onclick="get()">
+    <input type="button" value="提供用户信息 创建新用户" onclick="post()">
+
+</body>
+<script>
+    function get(){
+        /* 
+        注意：这个代码中访问的网址是我在reqres这种专门提供免费供访问api端点的网站中，
+            选择的api端点，作用是可以通过get请求来获取端点的数据
+            下面的是可以通过post请求来创建新用户的api端点
+            如果端点失效 请再另行查找
+        */
+
+        //完整写法
+        // axios({
+        //     method:"get",
+        //     url:"https://reqres.in/api/users?page=2"
+        // }).then(result => {
+        //     console.log(result.data);
+        // })
+
+        //简化写法
+        axios.get("https://reqres.in/api/users?page=2").then(result=>{
+            console.log(result.data);
+        })
+        
+    }
+
+    
+    function post(){
+        //完整
+        //通过axios发送异步请求-post
+        // axios({
+        //     method: "post",
+        //     url: "https://reqres.in/api/users",
+        //     data:{
+        //         "name":"小明",
+        //         "job":"TaoFenBoy"
+        //     }
+        // }).then(result => {
+        //     console.log(result.data);
+        // }).catch(error =>{
+        //     console.log("Error: " + error)
+        // })
+        /* 添加了一个.catch()方法来捕获并处理可能发生的任何错误。这是良好的实践，可以让你知道请求是否失败，以及失败的原因。*/
+
+        //简写
+        // axios.post("https://reqres.in/api/users","id=1").then(result => {
+        //     console.log(result.data);
+        // })
+        var giveDatas = [{name:"小明",age:18},{name:"Jack",age:77}];
+        axios.post("https://reqres.in/api/users",giveDatas).then(result=>{
+            console.log(result.data);
+            //返回的result.data是一个数组 这个要看api端点的具体返回信息 也就说由后端决定
+        }).catch(error =>{
+            console.log("~~Error~~: " + error);//实测有效
+         })
+    }
+</script>
+</html>
+
+<!--
+使用的两个端点的信息：
+
+端点1：
+Request
+/api/users?page=2
+
+
+Response
+200
+
+{
+    "page": 2,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [
+        {
+            "id": 7,
+            "email": "michael.lawson@reqres.in",
+            "first_name": "Michael",
+            "last_name": "Lawson",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+        {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        },
+        {
+            "id": 9,
+            "email": "tobias.funke@reqres.in",
+            "first_name": "Tobias",
+            "last_name": "Funke",
+            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+        },
+        {
+            "id": 10,
+            "email": "byron.fields@reqres.in",
+            "first_name": "Byron",
+            "last_name": "Fields",
+            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+        },
+        {
+            "id": 11,
+            "email": "george.edwards@reqres.in",
+            "first_name": "George",
+            "last_name": "Edwards",
+            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+        },
+        {
+            "id": 12,
+            "email": "rachel.howell@reqres.in",
+            "first_name": "Rachel",
+            "last_name": "Howell",
+            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+        }
+    ],
+    "support": {
+        "url": "https://reqres.in/#support-heading",
+        "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+    }
+}
+
+
+
+端点2：
+Request
+/api/users
+
+{
+    "name": "morpheus",
+    "job": "leader"
+}
+ 
+Response
+201
+
+{
+    "name": "morpheus",
+    "job": "leader",
+    "id": "590",
+    "createdAt": "2024-09-08T03:22:09.033Z"
+}
+-->

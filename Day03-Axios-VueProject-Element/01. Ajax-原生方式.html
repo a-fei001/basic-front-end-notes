@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生Ajax</title>
+</head>
+<body>
+    
+    <input type="button" value="获取数据" onclick="getData()">
+
+    <div id="div1"></div>
+
+    <hr>
+
+    <div>
+        <div>同步请求：</div>
+        <img src="./img/同步.png" width="800px">
+        <div>异步请求：</div>
+        <img src="./img/异步.png" width="800px">
+    </div>
+    <!-- 
+    AJAX (Asynchronous JavaScript And XML.)
+    1.作用
+    - 与服务器进行数据交互
+    - 异步交互：可以在不*重新加载整个页面*的情况下，
+               与服务器交换数据并*更新部分网页*的技术。
+    2.同步请求 & 异步请求
+    见网页中图片笔记。。。
+    3.具体操作--见代码
+    4.f12 点击Network 选择Fetch/XHR或者All 点击按钮 可以看到请求
+    -->
+
+</body>
+
+<script>
+    function getData(){
+        //1. 创建XMLHttpRequest 
+        var xmlHttpRequest  = new XMLHttpRequest();
+        
+        //2. 发送异步请求
+        /* 
+        这个回应请求的网站 可能一段时间就会死掉  
+        之后有找相关网站的请求 可以到https://reqres.in上找 或者问ai要推荐
+        */
+        xmlHttpRequest.open('GET','https://reqres.in/api/users?page=2');
+        xmlHttpRequest.send();//发送请求
+        
+        //3. 获取服务响应数据
+        xmlHttpRequest.onreadystatechange = function(){
+            console.log(xmlHttpRequest.readyState);
+            console.log(xmlHttpRequest.status);
+            if(xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200){
+                document.getElementById('div1').innerHTML = xmlHttpRequest.responseText;
+            }
+        }
+    }
+</script>
+</html>
